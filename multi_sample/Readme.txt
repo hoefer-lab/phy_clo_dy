@@ -1,0 +1,1 @@
+To reproduce the phylogenetic tree, adjust the paths in Subclone_Analysis_Medulloblastoma.R to the locations in which you stored the data files and  Phylogenetic_inference.R (lines 6, 8, 13). Then run Subclone_Analysis_Medulloblastoma.R.

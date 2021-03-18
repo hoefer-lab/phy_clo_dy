@@ -1439,8 +1439,8 @@ model.fits <- function(read.count.matrix.prim, read.count.matrix.rec, coverage.r
       
       tree. <- tree.for.fit$tree
       tree. <- tree.[,c(tree.for.fit$which.prim, tree.for.fit$which.rec)]
-      which.prim. <- tree.for.fit$which.prim[1:length(tree.for.fit$which.prim)]
-      which.rec. <- tree.for.fit$which.rec[(length(tree.for.fit$which.prim)+1):ncol(tree.)]
+      which.prim. <- 1:length(tree.for.fit$which.prim)
+      which.rec. <- (length(tree.for.fit$which.prim)+1):ncol(tree.)
       
       
       
@@ -2465,7 +2465,7 @@ Best.solution <- function(tree.fitting.result, min.non.ambiguous.clonals = 0.5, 
           
           ## if more than 50 % of the clonal mutations are ambiguous this is considered a bad fit (threshold can be chosen differently)
           if(!is.na(percent.non.unique.clonals) & !is.infinite(percent.non.unique.clonals) && percent.non.unique.clonals < min.non.ambiguous.clonals){
-            best.sol.per.cat[j ,"LL"] <- subclones[[j]]$Likelihood[k]
+            best.sol.per.cat[j ,"LL"] <- tree.fitting.result[[j]]$Likelihood[k]
             best.sol.per.cat[j , "mBIC"] <- mBIC
             best.sol.per.cat[j,"Index"] <- k 
             best.sol.per.cat[j ,"mean sq error clonal"] <- sqerr
